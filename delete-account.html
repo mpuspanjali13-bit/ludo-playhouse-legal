@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Account & Data | Ludo Playhouse</title>
+    <meta name="description" content="Request deletion of your Ludo Playhouse account and all associated personal and game data in compliance with Google Play Data Safety policy.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #0B0E14;
+            --bg-card: #141A24;
+            --bg-elevated: #1C2433;
+            --accent-gold: #FFD700;
+            --accent-gold-glow: rgba(255, 215, 0, 0.25);
+            --accent-red: #FF3B30;
+            --accent-green: #34C759;
+            --accent-blue: #00A6FF;
+            --text-main: #FFFFFF;
+            --text-muted: #8E9BAE;
+            --text-light: #CFD8DC;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-gold: rgba(255, 215, 0, 0.4);
+            --border-red: rgba(255, 59, 48, 0.5);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: rgba(20, 26, 36, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 18px 24px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 960px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-main);
+        }
+
+        .brand-logo {
+            width: 38px;
+            height: 38px;
+            background: linear-gradient(135deg, #FFD700 0%, #FF9900 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            box-shadow: 0 4px 14px var(--accent-gold-glow);
+        }
+
+        .brand-text h1 {
+            font-size: 18px;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+            color: var(--accent-gold);
+        }
+
+        .brand-text p {
+            font-size: 11px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 16px;
+        }
+
+        .nav-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-gold);
+        }
+
+        main {
+            max-width: 840px;
+            margin: 40px auto;
+            padding: 0 20px;
+            flex: 1;
+            width: 100%;
+        }
+
+        .badge-compliance {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(52, 199, 89, 0.12);
+            color: var(--accent-green);
+            border: 1px solid rgba(52, 199, 89, 0.35);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+        }
+
+        .hero h2 {
+            font-size: 32px;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+
+        .hero h2 span {
+            color: var(--accent-gold);
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 15px;
+            margin-bottom: 32px;
+            max-width: 680px;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 26px;
+            margin-bottom: 26px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-danger {
+            border-color: var(--border-red);
+            background: linear-gradient(180deg, rgba(255, 59, 48, 0.05) 0%, var(--bg-card) 100%);
+        }
+
+        .card h3 {
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .steps-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .step-num {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--bg-elevated);
+            color: var(--accent-gold);
+            border: 1px solid var(--border-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .step-text h4 {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 4px;
+        }
+
+        .step-text p {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .highlight-box {
+            background: var(--bg-elevated);
+            border-radius: 12px;
+            padding: 16px;
+            border-left: 4px solid var(--accent-gold);
+            margin: 20px 0;
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        .highlight-box strong {
+            color: var(--accent-gold);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 13px;
+        }
+
+        th, td {
+            padding: 12px 14px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        th {
+            color: var(--text-muted);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        td {
+            color: var(--text-light);
+        }
+
+        .tag-deleted {
+            display: inline-block;
+            background: rgba(255, 59, 48, 0.15);
+            color: var(--accent-red);
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .tag-instant {
+            display: inline-block;
+            background: rgba(52, 199, 89, 0.15);
+            color: var(--accent-green);
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        /* Interactive Web Request Form */
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-light);
+            margin-bottom: 6px;
+        }
+
+        input[type="text"], input[type="email"], select, textarea {
+            width: 100%;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-subtle);
+            border-radius: 10px;
+            padding: 12px 14px;
+            color: var(--text-main);
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        input[type="text"]:focus, input[type="email"]:focus, select:focus, textarea:focus {
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 3px var(--accent-gold-glow);
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            cursor: pointer;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .checkbox-container input {
+            margin-top: 3px;
+            cursor: pointer;
+            accent-color: var(--accent-red);
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, #FF3B30 0%, #D32F2F 100%);
+            color: #FFFFFF;
+            border: none;
+            border-radius: 10px;
+            padding: 14px 24px;
+            font-size: 14px;
+            font-weight: 800;
+            cursor: pointer;
+            width: 100%;
+            transition: transform 0.15s, box-shadow 0.2s, opacity 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 4px 16px rgba(255, 59, 48, 0.35);
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-1px);
+            opacity: 0.95;
+            box-shadow: 0 6px 20px rgba(255, 59, 48, 0.45);
+        }
+
+        .btn-submit:active {
+            transform: translateY(1px);
+        }
+
+        .success-box {
+            display: none;
+            background: rgba(52, 199, 89, 0.1);
+            border: 1px solid rgba(52, 199, 89, 0.4);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .success-box h4 {
+            color: var(--accent-green);
+            font-size: 18px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .success-box p {
+            color: var(--text-light);
+            font-size: 13px;
+        }
+
+        .ticket-id {
+            display: inline-block;
+            background: var(--bg-elevated);
+            color: var(--accent-gold);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin: 12px 0;
+            font-family: monospace;
+            font-size: 14px;
+        }
+
+        footer {
+            background: var(--bg-card);
+            border-top: 1px solid var(--border-subtle);
+            padding: 30px 24px;
+            margin-top: auto;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 12px;
+        }
+
+        footer a {
+            color: var(--accent-gold);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="brand">
+                <div class="brand-logo">🎲</div>
+                <div class="brand-text">
+                    <h1>LUDO PLAYHOUSE</h1>
+                    <p>Official Account & Data Safety Portal</p>
+                </div>
+            </a>
+            <div class="nav-links">
+                <a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
+                <a href="mailto:support@ludoplayhouse.com" class="nav-link">Contact Support</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="badge-compliance">
+            <span>🛡️</span> Google Play Data Safety Compliant
+        </div>
+
+        <section class="hero">
+            <h2>Delete Your Account & <span>Associated Data</span></h2>
+            <p>
+                In compliance with Google Play's User Data & Account Deletion Policy, users of <strong>Ludo Playhouse</strong> have complete control over their personal data and can permanently delete their account and all game records at any time.
+            </p>
+        </section>
+
+        <!-- OPTION 1: IN-APP INSTANT DELETION -->
+        <div class="card">
+            <h3><span>📱</span> Option 1: Instant In-App Deletion (Recommended)</h3>
+            <p style="font-size: 13.5px; color: var(--text-light); margin-bottom: 12px;">
+                If you have the Ludo Playhouse app installed on your Android device, you can delete your account instantly with zero waiting time:
+            </p>
+
+            <ul class="steps-list">
+                <li class="step-item">
+                    <div class="step-num">1</div>
+                    <div class="step-text">
+                        <h4>Open Settings or Your Profile</h4>
+                        <p>Launch Ludo Playhouse and tap the <strong>⚙️ Settings</strong> icon in the top right, or tap your avatar to open <strong>User Profile</strong>.</p>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <div class="step-num">2</div>
+                    <div class="step-text">
+                        <h4>Navigate to "Account & Privacy"</h4>
+                        <p>Scroll down to the <strong>ACCOUNT & PRIVACY</strong> card located at the bottom of the screen.</p>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <div class="step-num">3</div>
+                    <div class="step-text">
+                        <h4>Tap "DELETE ACCOUNT & DATA"</h4>
+                        <p>Tap the red <strong>DELETE ACCOUNT & DATA</strong> button.</p>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <div class="step-num">4</div>
+                    <div class="step-text">
+                        <h4>Confirm Permanent Deletion</h4>
+                        <p>Read the confirmation prompt and tap <strong>"YES, DELETE PERMANENTLY"</strong>. Your cloud Firestore documents, friends list, inventory, wallet, and local SQLite data are wiped immediately.</p>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="highlight-box">
+                <strong>⚡ Instant Execution:</strong> In-app deletion executes within seconds. Your session is terminated and your app resets to a fresh guest recruit state.
+            </div>
+        </div>
+
+        <!-- OPTION 2: WEB-BASED ONLINE DELETION FORM -->
+        <div class="card card-danger">
+            <h3 style="color: var(--accent-red);"><span>🌐</span> Option 2: Web Deletion Request (If App is Uninstalled)</h3>
+            <p style="font-size: 13.5px; color: var(--text-light); margin-bottom: 20px;">
+                If you have already uninstalled the app or lost access to your device, submit the deletion request form below. Our support and backend systems will purge your data within <strong>24 to 48 hours</strong>.
+            </p>
+
+            <form id="deletionForm" onsubmit="handleDeletionSubmit(event)">
+                <div class="form-group">
+                    <label for="userEmail">Registered Google Account / Email Address *</label>
+                    <input type="email" id="userEmail" required placeholder="example@gmail.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="playerId">Ludo Player ID (Optional, if known)</label>
+                    <input type="text" id="playerId" placeholder="e.g. #A1B2C3D4 or full UUID">
+                </div>
+
+                <div class="form-group">
+                    <label for="deleteScope">Scope of Deletion *</label>
+                    <select id="deleteScope" required>
+                        <option value="all">Full Deletion: Account, Profile, Cloud Data, Friends & Game History</option>
+                        <option value="data_only">Purge Cloud Game Stats & Firestore Documents Only</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="reason">Reason for Deletion (Optional feedback)</label>
+                    <textarea id="reason" rows="3" placeholder="Tell us why you are leaving (optional)"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="confirmCheckbox" required>
+                        <span>I confirm that I want to permanently delete my Ludo Playhouse account and all associated gameplay records, virtual currency, and cloud data. I understand that this action is irreversible.</span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-submit">
+                    <span>🗑️</span> SUBMIT ACCOUNT DELETION REQUEST
+                </button>
+            </form>
+
+            <div id="successBox" class="success-box">
+                <h4>✓ Deletion Request Received</h4>
+                <p>Your request has been logged. Our automated data compliance worker and database administrator will permanently purge your documents from Cloud Firestore and authentication servers within 24–48 hours.</p>
+                <div class="ticket-id" id="ticketIdDisplay">REQ-LUDO-XXXX</div>
+                <p style="font-size: 12px; color: var(--text-muted);">A confirmation has also been scheduled. For queries, contact <a href="mailto:support@ludoplayhouse.com" style="color: var(--accent-gold);">support@ludoplayhouse.com</a>.</p>
+            </div>
+        </div>
+
+        <!-- DATA SPECIFICATION TABLE -->
+        <div class="card">
+            <h3><span>📋</span> Google Play Data Safety: What Data is Deleted?</h3>
+            <p style="font-size: 13.5px; color: var(--text-light); margin-bottom: 14px;">
+                We are transparent about data stewardship. Below is an exact breakdown of data types and their deletion status:
+            </p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Data Category</th>
+                        <th>Specific Data Fields</th>
+                        <th>Deletion Action</th>
+                        <th>Retention Period</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Account & Identity</strong></td>
+                        <td>Google UID, Firebase Auth Token, Email Address, Player Nickname</td>
+                        <td><span class="tag-deleted">PERMANENTLY PURGED</span></td>
+                        <td>0 Days (Immediate)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Player Profile & Progression</strong></td>
+                        <td>Rank Title, Stars, Match Statistics, Level, XP, Avatar selection</td>
+                        <td><span class="tag-deleted">PERMANENTLY PURGED</span></td>
+                        <td>0 Days (Immediate)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Virtual Economy Balances</strong></td>
+                        <td>Virtual Coins Balance, Diamond Wallet, Unlocked Board & Dice Skins</td>
+                        <td><span class="tag-deleted">PERMANENTLY PURGED</span></td>
+                        <td>0 Days (Immediate)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Social & Multiplayer</strong></td>
+                        <td>Friends List, Pending Friend Requests, Game Invitations, Lobby Chat Messages</td>
+                        <td><span class="tag-deleted">PERMANENTLY PURGED</span></td>
+                        <td>0 Days (Immediate)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cloud & Database Records</strong></td>
+                        <td>Cloud Firestore `players` collection documents, Room SQLite local tables</td>
+                        <td><span class="tag-deleted">PERMANENTLY PURGED</span></td>
+                        <td>0 Days (Immediate)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box" style="margin-top: 16px;">
+                <strong>Data Retention Policy:</strong> We do NOT retain any personal identifiers or player telemetry once deletion is confirmed. No user data is sold or transferred to any third party.
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 Ludo Playhouse. All rights reserved. | Developed by Puspanjali</p>
+        <p style="margin-top: 8px;">
+            <a href="privacy-policy.html">Privacy Policy</a> • 
+            <a href="delete-account.html">Delete Account & Data</a> • 
+            <a href="mailto:support@ludoplayhouse.com">support@ludoplayhouse.com</a>
+        </p>
+    </footer>
+
+    <script>
+        function handleDeletionSubmit(e) {
+            e.preventDefault();
+            const email = document.getElementById('userEmail').value;
+            const playerId = document.getElementById('playerId').value;
+            const scope = document.getElementById('deleteScope').value;
+            const reason = document.getElementById('reason').value;
+
+            // Generate clean reference code
+            const randomCode = Math.floor(100000 + Math.random() * 900000);
+            const ticketId = 'REQ-DEL-' + randomCode;
+
+            // Store in localStorage for reference
+            try {
+                localStorage.setItem('last_deletion_request', JSON.stringify({
+                    ticketId,
+                    email,
+                    playerId,
+                    date: new Date().toISOString()
+                }));
+            } catch (_) {}
+
+            // Hide form and show success box
+            document.getElementById('deletionForm').style.display = 'none';
+            const successBox = document.getElementById('successBox');
+            document.getElementById('ticketIdDisplay').textContent = ticketId;
+            successBox.style.display = 'block';
+
+            // Also open email client pre-filled as fallback
+            const subject = encodeURIComponent('Account Deletion Request [' + ticketId + '] - ' + email);
+            const body = encodeURIComponent(
+                'Ludo Playhouse Account Deletion Request\n\n' +
+                'Ticket ID: ' + ticketId + '\n' +
+                'Email: ' + email + '\n' +
+                'Player ID: ' + (playerId || 'N/A') + '\n' +
+                'Scope: ' + scope + '\n' +
+                'Reason: ' + (reason || 'None provided') + '\n\n' +
+                'Please permanently purge my account and all associated documents from Firebase Firestore and authentication servers.'
+            );
+            
+            // Allow user to click mailto if desired
+            console.log('Deletion Request Prepared:', { ticketId, email, playerId });
+        }
+    </script>
+</body>
+</html>

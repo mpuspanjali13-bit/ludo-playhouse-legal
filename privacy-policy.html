@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Ludo Playhouse</title>
+    <meta name="description" content="Official Privacy Policy for Ludo Playhouse Android application in compliance with Google Play Store User Data & Privacy policies.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #0B0E14;
+            --bg-card: #141A24;
+            --bg-elevated: #1C2433;
+            --accent-gold: #FFD700;
+            --accent-gold-glow: rgba(255, 215, 0, 0.25);
+            --accent-green: #34C759;
+            --accent-blue: #00A6FF;
+            --text-main: #FFFFFF;
+            --text-muted: #8E9BAE;
+            --text-light: #CFD8DC;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-gold: rgba(255, 215, 0, 0.4);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: rgba(20, 26, 36, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 18px 24px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 960px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-main);
+        }
+
+        .brand-logo {
+            width: 38px;
+            height: 38px;
+            background: linear-gradient(135deg, #FFD700 0%, #FF9900 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            box-shadow: 0 4px 14px var(--accent-gold-glow);
+        }
+
+        .brand-text h1 {
+            font-size: 18px;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+            color: var(--accent-gold);
+        }
+
+        .brand-text p {
+            font-size: 11px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 16px;
+        }
+
+        .nav-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent-gold);
+        }
+
+        main {
+            max-width: 840px;
+            margin: 40px auto;
+            padding: 0 20px;
+            flex: 1;
+            width: 100%;
+        }
+
+        .badge-compliance {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(52, 199, 89, 0.12);
+            color: var(--accent-green);
+            border: 1px solid rgba(52, 199, 89, 0.35);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+        }
+
+        .hero h2 {
+            font-size: 32px;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 28px;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 26px;
+            margin-bottom: 26px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .card h3 {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--accent-gold);
+            margin-bottom: 12px;
+        }
+
+        .card p, .card li {
+            font-size: 13.5px;
+            color: var(--text-light);
+            margin-bottom: 12px;
+        }
+
+        .card ul {
+            padding-left: 20px;
+            margin-bottom: 12px;
+        }
+
+        .card li {
+            margin-bottom: 6px;
+        }
+
+        .highlight-box {
+            background: var(--bg-elevated);
+            border-radius: 12px;
+            padding: 16px;
+            border-left: 4px solid var(--accent-gold);
+            margin: 16px 0;
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        .btn-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #FFD700 0%, #FF9900 100%);
+            color: #000000;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 800;
+            text-decoration: none;
+            margin-top: 8px;
+            box-shadow: 0 4px 12px var(--accent-gold-glow);
+        }
+
+        footer {
+            background: var(--bg-card);
+            border-top: 1px solid var(--border-subtle);
+            padding: 30px 24px;
+            margin-top: auto;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 12px;
+        }
+
+        footer a {
+            color: var(--accent-gold);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="brand">
+                <div class="brand-logo">🎲</div>
+                <div class="brand-text">
+                    <h1>LUDO PLAYHOUSE</h1>
+                    <p>Official Privacy & Data Portal</p>
+                </div>
+            </a>
+            <div class="nav-links">
+                <a href="privacy-policy.html" class="nav-link active">Privacy Policy</a>
+                <a href="delete-account.html" class="nav-link">Delete Account & Data</a>
+                <a href="mailto:support@ludoplayhouse.com" class="nav-link">Contact Support</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="badge-compliance">
+            <span>🛡️</span> Google Play Developer Policy Compliant
+        </div>
+
+        <section class="hero">
+            <h2>Privacy Policy for <span>Ludo Playhouse</span></h2>
+            <p><strong>Effective Date:</strong> October 2026 | <strong>Last Updated:</strong> October 23, 2026</p>
+        </section>
+
+        <!-- 1. INTRODUCTION -->
+        <div class="card">
+            <h3>1. Introduction & Overview</h3>
+            <p>
+                Welcome to <strong>Ludo Playhouse</strong> ("we", "us", or "our"), developed and published by Puspanjali / Ludo Playhouse Studio. We respect your privacy and are committed to protecting the personal data of our users ("you").
+            </p>
+            <p>
+                This Privacy Policy explains how information is collected, used, disclosed, and safeguarded when you use our mobile application <strong>Ludo Playhouse</strong> (Package: <code>com.aistudio.ludocenter.wsjkpn</code>) and related online services.
+            </p>
+        </div>
+
+        <!-- 2. INFORMATION COLLECTED -->
+        <div class="card">
+            <h3>2. Information We Collect</h3>
+            <p>We believe in data minimization. We only collect the minimal information necessary to deliver high-quality multiplayer gameplay, cloud game progress saving, and matchmaking:</p>
+            <ul>
+                <li><strong>Anonymous Player Identifiers:</strong> A locally generated unique UUID string to identify your player profile, stats, and coin balance.</li>
+                <li><strong>Google Sign-In Information (Optional):</strong> If you choose to connect your Google Account via Google Sign-In, we receive your public display name, email address, profile photo URL, and Google UID for authentication purposes via Google Play Services / Firebase Authentication.</li>
+                <li><strong>Gameplay Records & Statistics:</strong> Matches played, matches won, win streaks, pawns captured, safe zones reached, dice rolls statistics, and star rank progression.</li>
+                <li><strong>Virtual Economy Data:</strong> Balances of virtual coins and gems used strictly for in-game cosmetic purchases, avatars, and match entry tickets.</li>
+                <li><strong>Friends & Social Interactions:</strong> Friend list IDs, sent/received game invitations, and lobby chat messages transmitted during active sessions.</li>
+            </ul>
+        </div>
+
+        <!-- 3. HOW WE USE YOUR INFORMATION -->
+        <div class="card">
+            <h3>3. How We Use Your Information</h3>
+            <p>We use your information exclusively for the following legitimate gaming purposes:</p>
+            <ul>
+                <li>To synchronize your game progress, rank, and virtual currency across devices via Cloud Firestore.</li>
+                <li>To enable multiplayer matchmaking (2v2 Team Battle, Rapid Rush, Classic 4-Player).</li>
+                <li>To manage social features including friend invitations and multiplayer lobby matchmaking.</li>
+                <li>To maintain fair play, prevent cheating, and ensure platform security.</li>
+            </ul>
+            <div class="highlight-box">
+                <strong>No Data Selling:</strong> We do NOT sell, rent, or trade your personal data or gameplay telemetry to data brokers or advertising networks.
+            </div>
+        </div>
+
+        <!-- 4. THIRD-PARTY SERVICES -->
+        <div class="card">
+            <h3>4. Third-Party Service Providers</h3>
+            <p>Our application integrates trusted third-party services that process data strictly under privacy agreements complying with Google Play Developer policies:</p>
+            <ul>
+                <li><strong>Google Play Services:</strong> For core Android platform services, authentication, and secure app integrity.</li>
+                <li><strong>Firebase Authentication & Cloud Firestore (Google LLC):</strong> To securely store cloud player documents, multiplayer invitations, and synchronized game states.</li>
+            </ul>
+        </div>
+
+        <!-- 5. ACCOUNT DELETION & DATA RIGHTS -->
+        <div class="card">
+            <h3>5. Account & Data Deletion Rights</h3>
+            <p>
+                In strict compliance with Google Play's Data Safety and Account Deletion Policy, you have the full legal right to permanently delete your account and all associated gameplay data at any time.
+            </p>
+            <p>You may initiate deletion via two methods:</p>
+            <ul>
+                <li><strong>In-App Deletion (Instant):</strong> Open Ludo Playhouse &gt; Settings &gt; Account &amp; Privacy &gt; Tap "DELETE ACCOUNT &amp; DATA".</li>
+                <li><strong>Web Portal Deletion (For uninstalled users):</strong> Visit our dedicated Account Deletion Web Portal to submit an online request processed within 24 to 48 hours.</li>
+            </ul>
+            <a href="delete-account.html" class="btn-action">
+                <span>🗑️</span> Go to Delete Account & Data Portal
+            </a>
+        </div>
+
+        <!-- 6. DATA RETENTION -->
+        <div class="card">
+            <h3>6. Data Retention Policy</h3>
+            <p>
+                We retain player data only for as long as your account remains active or as needed to provide you with gameplay services. Once an account deletion is requested or executed:
+            </p>
+            <ul>
+                <li>All cloud documents under <code>players/{userId}</code>, <code>friend_requests</code>, and <code>game_invitations</code> on Cloud Firestore are permanently erased.</li>
+                <li>Local Room SQLite database tables on your device are purged.</li>
+                <li>No personal data is retained on our servers.</li>
+            </ul>
+        </div>
+
+        <!-- 7. CHILDREN'S PRIVACY -->
+        <div class="card">
+            <h3>7. Children's Privacy (COPPA Compliance)</h3>
+            <p>
+                Ludo Playhouse is intended for general audiences. We do not knowingly collect or solicit personal identifiable information from children under the age of 13. If we discover that personal information has been collected from a child under 13 without verifiable parental consent, we immediately delete that information from our servers.
+            </p>
+        </div>
+
+        <!-- 8. SECURITY -->
+        <div class="card">
+            <h3>8. Data Security</h3>
+            <p>
+                We employ industry-standard administrative, technical, and physical security measures to protect your personal information, including SSL/TLS encryption for all network transmissions and strict Cloud Firestore security rules preventing unauthorized data tampering.
+            </p>
+        </div>
+
+        <!-- 9. CONTACT -->
+        <div class="card">
+            <h3>9. Contact Us</h3>
+            <p>If you have any questions, concerns, or requests regarding this Privacy Policy or your data rights, please contact our Data Protection representative:</p>
+            <p>
+                <strong>Developer / Publisher:</strong> Puspanjali<br>
+                <strong>App Name:</strong> Ludo Playhouse<br>
+                <strong>Email:</strong> <a href="mailto:support@ludoplayhouse.com" style="color: var(--accent-gold);">support@ludoplayhouse.com</a><br>
+                <strong>Repository / Portal:</strong> <a href="https://github.com/mpuspanjali13-bit/new-ludo-playhouse" target="_blank" style="color: var(--accent-gold);">github.com/mpuspanjali13-bit/new-ludo-playhouse</a>
+            </p>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 Ludo Playhouse. All rights reserved. | Developed by Puspanjali</p>
+        <p style="margin-top: 8px;">
+            <a href="privacy-policy.html">Privacy Policy</a> • 
+            <a href="delete-account.html">Delete Account & Data</a> • 
+            <a href="mailto:support@ludoplayhouse.com">support@ludoplayhouse.com</a>
+        </p>
+    </footer>
+
+</body>
+</html>
